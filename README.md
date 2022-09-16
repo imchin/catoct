@@ -36,4 +36,18 @@ Solving for the durations is a bit trickier. Theoretically, we can choose any ar
 
 We approach this by using nonlinear parameteric optimization to solve for the shortest durations subject to the limited velocity and acceleration. Note that the limitations are only imposed at the via points. Since the acceleration is piece-wise linear, its extremas are at the via points, which implies that the acceleration will not violate the constraints at any time. However, the velocity is piece-wise parabolic. Therefore, some velocity violations may occur inbetween the via points. This is one of the down side of this approach. 
 
-In reality, a robotics manipulator would start with zero acceleration. And it should also stop with zero-acceleration. Since the mentioned approach does not rely on the given acceleration, it cannot gaurantee zero acceleration at the boundaries (initial & terminal). To mitigate this problem, we can add auxilary via points in the middle of the first and the final sub-trajectories. The  
+In reality, a robotics manipulator would start with zero acceleration. And it should also stop with zero-acceleration. Since the mentioned approach does not rely on the given acceleration, it cannot gaurantee zero acceleration at the boundaries (initial & terminal). To mitigate this problem, we can add auxilary via points in the middle of the first and the final sub-trajectories. Although the intial and the final acceleration is constrained, the positions are not. Therefore, it is possible to obtain a piece-wise cubic trajectory that have zero acceleration at the boundaries by adding 2 additional via points. 
+
+CATOCT does the followings:
+* solves nonlinear parametric optimization for optimal values of durations
+* satisfies continuous-acceleration and zero-acceleration constraints by solving a matrix equation
+* satisfies the velocity and acceleration limits by the use of opitmization.
+
+This results in Continuous-Acceleration Time-Optimal Cubic Trajectory or CATOCT !!
+
+## How to use CATOCT ?:
+
+CATOCT is a relatively small library and consists of only 1 Python file. We write a test script for you to test it out. 
+Simply download both files to your workspace, and run the script to see the result.
+
+![Alt text](example.png?raw=true "Title")

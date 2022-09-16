@@ -1,5 +1,4 @@
-![alt text](https://github.com/[username]/[time_optimal_cubic_trajectory
-]/[main]/logo.jpg?raw=true)
+![Alt text](logo.jpg?raw=true "Title")
 # CATOCT: Continuous-Acceleraiton Time-Optimal Cubic Trajectory
 This method is suitable for fully-actuated robotics manipulator.
 

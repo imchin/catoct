@@ -1,5 +1,5 @@
 # CATOCT: Continuous-Acceleraiton Time-Optimal Cubic Trajectory
-This is suitable for fully-actuated robotics manipulator.
+This method is suitable for fully-actuated robotics manipulator.
 
 ## Objective:
 Given a sequence of (multiple-degree-of-freedom) via points in joint space and limits on the magnitude of both velocity and acceleration of each degree of freedom, 
@@ -29,5 +29,6 @@ The problem is that, for the quintic trajectory, one has to determine many unkno
 This is why "CATOCT:Continuous-Acceleration Time-Optimal Cubic Trajectory" is developed.
 
 ## Ideas behind CATOCT:
-In reality, a sequence of via points in joint space are the only things given to the trajectory generator. Our goal is to automatically compute the optimal durations of each sub-trajectory 
-as well as the velocity of each via point.
+In reality, a sequence of via points in joint space are the only things given to the trajectory generator. We must compute durations, via points' velocity, and acceleration automatically. Although we cannot assign any arbitary acceleration at the via points for a cubic trajectory, we can adjust the velocity at the via points so that the acceleration at the via points are continuous given the duration of each trajectory. In other words, we can solve for the velocity at each via points using the given durations. This actually results in a closed form solution.
+
+Solving for the durations is a bit trickier. Theoretically, we can choose any arbitary durations and call it a day. However, if the durations are too large, the planned trajectory will take too long. But if it's too short, the trajectory may not be feasible for the actua physical system. This implies that here must be some physical limitations that we should impose on the durations. 

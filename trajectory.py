@@ -20,7 +20,10 @@ import numpy as np
 from scipy.optimize import minimize
 
 def get_Tqvac(T,q):
-    a = 0.5
+    # compute via points' velocity that results in continuous acceleration
+    # and add auxiliary via points that results in zero acceleration at the boundaries
+    a = 0.5     # location of the auxiliary via points are in the middle (50%) of the sub-trajectory
+    # constructing A matrix of the linear equation A*x = b
     ud = 1/T
     ld = 1/T
     ud[0] = (1-a)/T[0]
@@ -37,6 +40,7 @@ def get_Tqvac(T,q):
     d[-2] = 2/T[-2]+2/((1-a)*T[-1])
     d[-1] = 1/(a*T[-1])
     A = np.diag(d)+np.diag(ld,-1)+np.diag(ud,1)
+    # constructing b vector of the linear equation
     b_1 = np.array([3/(T[0:-1]**2)]).T*(q[:,1:-1]-q[:,0:-2]).T
     b_2 = np.array([(3/(T[1:]**2))]).T*(q[:,2:]-q[:,1:-1]).T
     b = b_1+b_2
@@ -45,10 +49,13 @@ def get_Tqvac(T,q):
     b[1,:] = (-3/(((1-a)*T[0])**2))*q[:,0]+3*(1/(((1-a)*T[0])**2)-1/(T[1]**2))*q[:,1]+(3/(T[1]**2))*q[:,2]
     b[-2,:] = (3/(((1-a)*T[-1])**2))*q[:,-1]+3*(1/(T[-2]**2)-1/(((1-a)*T[-1])**2))*q[:,-2]-(3/(T[-2]**2))*q[:,-3]
     b[-1,:] = (3/(T[-1]**2))*(q[:,-1]-q[:,-2])
+    # solve for the velocity x = inv(A)*b
     v = np.concatenate((np.zeros((1,q.shape[0])),np.linalg.inv(A)@b,np.zeros((1,q.shape[0]))),0).T
+    # add the auxiliary via points
     q_a1 = q[:,0]+v[:,1]/3*a*T[0]
     q_a2 = q[:,-1]-v[:,-2]/3*a*T[-1]
     q_a = np.concatenate((np.array([q[:,0]]).T,np.array([q_a1]).T,q[:,1:-1],np.array([q_a2]).T,np.array([q[:,-1]]).T),1)
+    # add break down durations of the first and the last sub-trajectories
     T_a = list()
     T_a.append(a*T[0])
     T_a.append((1-a)*T[0])
@@ -56,6 +63,7 @@ def get_Tqvac(T,q):
     T_a.append((1-a)*T[-1])
     T_a.append(a*T[-1])
     T_a = np.array(T_a)
+    # evaluate for trajectory coefficients
     d_1  = q_a[:,1:]-q_a[:,0:-1]-v[:,0:-1]*T_a
     d_2 = v[:,1:]-v[:,0:-1] 
     c_2 = 3/(T_a**2)*d_1-1/T_a*d_2
@@ -69,8 +77,11 @@ def get_Tqvac(T,q):
     c = (c_0,c_1,c_2,c_3)
     return T_a,q_a,v,a,c
 def total_time(T):
+    # cost for optimization : the total duration of the entire trajectory
     return np.sum(T)
 def nonlcon(T,q,v_max,a_max):
+    # based on the given duration T, via points q and the constraints v_max,a_max
+    # create an inequality constraints : h(x)>=0
     T_a,q_a,v,a,c = get_Tqvac(T,q)
     min_v = np.array([v_max]).T+v
     max_v = np.array([v_max]).T-v

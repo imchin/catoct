@@ -1,4 +1,4 @@
-![Alt text](logo_catoct.jpg?raw=true "Title")
+![Alt text](pic/logo_catoct.jpg?raw=true "Title")
 
 This method is suitable for fully-actuated robotics manipulator.
 
@@ -48,7 +48,7 @@ This results in Continuous-Acceleration Time-Optimal Cubic Trajectory or CATOCT 
 ## How to use CATOCT ?:
 CATOCT is a relatively small library and consists of only 1 Python file. We wrote a script for you to test it out. 
 Simply download both files to your workspace, and run the script [test.py](https://github.com/tchoopojcharoen/catoct/blob/main/test.py) to see the result.
-![Alt text](example.png?raw=true "Title")
+![Alt text](pic/example.png?raw=true "Title")
 ### Construct and perform optimization
 In case you want to generate your own trajectory, you can try assigning your via points, velocity limits, and acceleration limits. Note that the initial position is defined separately from the via points. This represents the current joint state of the robotics manipulator.
 ```

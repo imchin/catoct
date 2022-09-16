@@ -1,5 +1,5 @@
 ![Alt text](logo_catoct.jpg?raw=true "Title")
-# CATOCT: Continuous-Acceleraiton Time-Optimal Cubic Trajectory
+
 This method is suitable for fully-actuated robotics manipulator.
 
 ## Objective:

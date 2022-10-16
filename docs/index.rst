@@ -10,9 +10,10 @@ continuous in position, velocity, and acceleration.
    :maxdepth: 1
    :caption: Getting Started
 
+   rationale.rst
    installation.rst
    Examples <https://github.com/catoct/tree/main/examples>
-   api-reference.rst
+   api-reference.md
    CONTRIBUTING.md
 
 ## Why not quintic trajectory ?:

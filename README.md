@@ -85,5 +85,7 @@ axs[1].plot(np.cumsum(traj.duration),traj.velocity,'r*',linewidth=1,markersize=1
 axs[2].plot(t,a_t)
 axs[2].plot(np.cumsum(traj.duration),traj.acceleration,'r*',linewidth=1,markersize=10)
 plt.show()
-```
 
+.. image:: pic/example.png
+  :width: 400
+  :alt: Alternative text

@@ -6,6 +6,9 @@ Given a sequence of (multiple-degree-of-freedom) via points in joint space and l
 the goal is to generate a piece-wise cubic trajectory that is time-optimal and satisfies both velocity and acceleration constraints. The trajectory must be 
 continuous in position, velocity, and acceleration.
 
+.. image:: pic/example.png
+  :width: 1000
+  :alt: Alternative text
 .. toctree::
    :maxdepth: 1
    :caption: Getting Started

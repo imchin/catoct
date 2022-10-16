@@ -5,7 +5,6 @@ Download
 ------
 Simply download both files to your workspace, and run the script [test.py](https://github.com/tchoopojcharoen/catoct/blob/main/examples/test.py) to see the result. !
 
-.. meow: https://www.python.org
+External hyperlinks, like Python_.
 
-
-The "meow" target above points to this paragraph.
+.. _Python: http://www.python.org/

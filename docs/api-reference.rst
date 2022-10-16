@@ -1,7 +1,7 @@
 API Reference for CATOCT
 ========
 
-Construct and perform optimization
+Initializing parameters
 --------
 
 In case you want to generate your own trajectory, you can try assigning your via points, velocity limits, and acceleration limits. Note that the initial position is defined separately from the via points. This represents the current joint state of the robotics manipulator.::
@@ -16,12 +16,26 @@ In case you want to generate your own trajectory, you can try assigning your via
    v_max = [1]*n
    a_max = [0.1]*n
 
-Construct a "Trajectory" and assign the via_points as well as the velocity and acceleration limits. Once you have done that, you can run optimization by calling "time_optimal" on the initial position.::
+Constructing a "Trajectory" object
+--------
+
+CATOCT provides a class definition called "Trajectory", which holds several functionalities related to trajectory generation. Constructing a "Trajectory" requires  via_points as well as velocity and acceleration limits.::
 
    traj = Trajectory()
    traj.set_position(q)
    traj.set_bound(v_max,a_max)
+   
+Optimizing a trajectory
+--------
+
+Once you have constructed a trajectory that, you can run optimization by calling "time_optimal" on the initial guessed position.::
+
    traj.time_optimal(q_0)
+   
+"time_optimal" will attempt to solve optimization. Due to the uniqueness of the problem, it will always return optimization result. 
+
+Evaluating a trajectory at a point
+--------
 
 CATOCT also provides a method called "evaluate" to evaluate the optimized trajectroy based on any time vector. We can generate a time vector using numpy's linspace and visualize the evaluated trajectory using matplotlib.::
 
@@ -40,3 +54,7 @@ CATOCT also provides a method called "evaluate" to evaluate the optimized trajec
    axs[2].plot(np.cumsum(traj.duration),traj.acceleration,'r*',linewidth=1,markersize=10)
    plt.show()
 
+
+.. image:: pic/example.png
+  :width: 400
+  :alt: Alternative text

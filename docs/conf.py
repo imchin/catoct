@@ -13,7 +13,7 @@ master_doc = "index"
 language = None
 
 # Output options
-html_theme = "sphinx_rtd_theme"
+#html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
 html_style = "css/style.css"
 #html_logo = "logo.png"

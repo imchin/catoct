@@ -6,6 +6,15 @@ Given a sequence of (multiple-degree-of-freedom) via points in joint space and l
 the goal is to generate a piece-wise cubic trajectory that is time-optimal and satisfies both velocity and acceleration constraints. The trajectory must be 
 continuous in position, velocity, and acceleration.
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started
+
+   installation.rst
+   Examples <https://github.com/catoct/tree/main/examples>
+   api-reference.rst
+   CONTRIBUTING.md
+
 ## Why not quintic trajectory ?:
 The advantage of using polynomial trajectory is its easily-computed derivatives based on its fixed structure of coefficients and the monomials. 
 A cubic trajectory consists of 4 coefficients. Only 4 boundary conditions and the duration of thetrajectory are required to compute the coefficients. Typically, this is done by assigning 

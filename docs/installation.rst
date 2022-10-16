@@ -7,7 +7,7 @@ Download
 .. _test.py: https://github.com/tchoopojcharoen/catoct/blob/main/examples/test.py
 .. _repository: https://downgit.github.io/#/home?url=https://github.com/tchoopojcharoen/catoct
 
-Simply download the respository_ to your workspace.
+Simply download the "respository_" to your workspace.
 
 Test some basic functionality
 --------

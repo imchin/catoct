@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 from trajectory import Trajectory
 import numpy as np
 import matplotlib.pyplot as plt

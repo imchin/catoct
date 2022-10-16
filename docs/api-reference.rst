@@ -56,5 +56,5 @@ CATOCT also provides a method called "evaluate" to evaluate the optimized trajec
 
 
 .. image:: pic/example.png
-  :width: 400
+  :width: 1000
   :alt: Alternative text

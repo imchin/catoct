@@ -4,7 +4,8 @@ API Reference for CATOCT
 Construct and perform optimization
 --------
 
-In case you want to generate your own trajectory, you can try assigning your via points, velocity limits, and acceleration limits. Note that the initial position is defined separately from the via points. This represents the current joint state of the robotics manipulator::
+In case you want to generate your own trajectory, you can try assigning your via points, velocity limits, and acceleration limits. Note that the initial position is defined separately from the via points. This represents the current joint state of the robotics manipulator.::
+
    from trajectory import Trajectory
    import numpy as np
  

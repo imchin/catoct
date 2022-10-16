@@ -7,7 +7,6 @@ import string
 project = "CATOCT"
 author = "Pi Thanacha Choopojcharoen"
 copyright = f"2022-{datetime.date.today().year}, {author}"
-release = version = pymanopt.__version__
 
 
 # Build settings
@@ -48,22 +47,4 @@ autodoc_default_options = {
     "show-inheritance": True,
     "inherited-members": True,
 }
-
-# nbsphinx
-nbsphinx_execute_arguments = [
-    "--InlineBackend.figure_formats={'svg', 'pdf'}",
-    "--InlineBackend.rc={'figure.dpi': 96}",
-]
-nbsphinx_prolog = r"""
-{% set docname = env.doc2path(env.docname, base=None) %}
-.. only:: html
-
-    .. role:: raw-html(raw)
-        :format: html
-    .. nbinfo::
-        :raw-html:`<a href="https://github.com/pymanopt/pymanopt/blob/master/{{
-        docname }}"><img alt="Open on GitHub"
-        src="https://img.shields.io/badge/Open-on%20GitHub-blue?logo=GitHub"
-        style="vertical-align:text-bottom"></a>`
-"""
 

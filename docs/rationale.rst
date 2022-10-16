@@ -1,5 +1,7 @@
-Why not quintic trajectory ?
+Rationale behinds CATOCT
 ========
+Why not quintic trajectory ?
+--------
 The advantage of using polynomial trajectory is its easily-computed derivatives based on its fixed structure of coefficients and the monomials. 
 A cubic trajectory consists of 4 coefficients. Only 4 boundary conditions and the duration of thetrajectory are required to compute the coefficients. Typically, this is done by assigning 
 the initial position, the final position, the intial velocity, and the final velocity. The resultant cubic trajectory can be appended togeter to form a 

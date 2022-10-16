@@ -9,11 +9,13 @@ However, if the duration is arbitary, one cannot gaurantee the continuity in the
 One simple way to solve this is to use a quintic trajectory, which has 6 coefficients. In addition to the given position and velocity of the boundaries, the accceleration can be assigned as well. 
 The resultant piece-wise quintic trajectory can now be conitnuous in its position, velocity, and accceleration. This implies that, in order to generate a piece-wise quintic trajectory,
 one needs the followings.
+
 #. durations of each sub-trajectory
 #. position at each via points (including the initial one)
 #. velocity at each via points (including the initial one)
 #. acceleration at each via points (including the initial one)
 Given the position of the via points, there are several questions about the rest of the parameters.
+
 #. Can the durations be any values? Can they be too small or too large ?
 #. Can the velocity be any values? Is there any way we can compute this automatically?
 #. Can the acceleration be any values? Can the actuators achieve the given acceleration? What happens to the acceleration between the via points?
@@ -32,6 +34,7 @@ We approach this by using nonlinear parameteric optimization to solve for the sh
 In reality, a robotics manipulator would start with zero acceleration. And it should also stop with zero-acceleration. Since the mentioned approach does not rely on the given acceleration, it cannot gaurantee zero acceleration at the boundaries (initial & terminal). To mitigate this problem, we can add auxilary via points in the middle of the first and the final sub-trajectories. Although the intial and the final acceleration is constrained, the positions are not. Therefore, it is possible to obtain a piece-wise cubic trajectory that have zero acceleration at the boundaries by adding 2 additional via points. 
 
 CATOCT does the followings:
+
 #. solves nonlinear parametric optimization for optimal values of durations
 #. satisfies continuous-acceleration and zero-acceleration constraints by solving a matrix equation
 #. satisfies the velocity and acceleration limits by the use of opitmization.

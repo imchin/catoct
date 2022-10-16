@@ -36,15 +36,3 @@ html_last_updated_fmt = ""
 
 # Doc version sidebar
 templates_path = ["_templates"]
-
-# autodoc
-autodoc_typehints = "description"
-autodoc_typehints_description_target = "all"
-autodoc_default_options = {
-    "member-order": "bysource",
-    "members": True,
-    "undoc-members": True,
-    "show-inheritance": True,
-    "inherited-members": True,
-}
-

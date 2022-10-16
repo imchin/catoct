@@ -9,18 +9,6 @@ author = "Pi Thanacha Choopojcharoen"
 copyright = f"2022-{datetime.date.today().year}, {author}"
 
 
-# Build settings
-extensions = [
-    "myst_parser",
-    "nbsphinx",
-    "sphinx.ext.autodoc",
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.coverage",
-    "sphinx.ext.doctest",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.viewcode",
-    "sphinxcontrib.katex",
-]
 master_doc = "index"
 language = None
 
